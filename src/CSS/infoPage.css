@@ -1,0 +1,53 @@
+
+/* --------------------------- Info Page -------------------------- */
+
+.page1 {
+    display: flex;
+}
+/* .page1.display {
+    display: flex;
+} */
+.infoPage-form, .select-plan, .add-ons {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.infoPage-form > form {
+  /* width: 110%; */
+  padding: 2rem 0;
+  font-family: ubuntu-medium;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.infoPage-form > form > * {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.infoPage-form > form > * > input {
+  padding: 0.8rem 0.8rem;
+  font-size: var(--size-300);
+  font-family: ubuntu-medium;
+  /* color: rgb(188, 188, 188); */
+  opacity: 0.6;
+  letter-spacing: .5px;
+
+  border: 1.5px solid var(--clr-text);
+  border-radius: 10px;
+  transition: 0.2s;
+
+}
+
+.infoPage-form > form > * > input:is(:focus) {
+  outline: none;
+  border-color: var(--clr-input);
+}
+
+.infoPage-form > form > * > label {
+  color: rgb(57, 57, 106);
+}

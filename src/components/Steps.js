@@ -5,8 +5,7 @@ import {useSelector} from 'react-redux';
 // const steps = ['your info', 'select plan', 'add-ons', 'summary'];
 
 const Steps = () => {
-  const {steps} = useSelector((state) => state.steps);
-  const {count} = useSelector((state) => state.display);
+  const {steps, count} = useSelector((state) => state.steps);
   let numColor = '';
 
   return (
@@ -17,7 +16,7 @@ const Steps = () => {
     <div className='default-steps'>
       <ul role='list'>
         {steps.map((value, index) => {
-          (index == count) ? numColor='showBG': numColor='';
+          (index === count) ? numColor='showBG': numColor='';
           return (
             <div className={`all-steps ${numColor}`} key={index}>
               <div className="each-step">
