@@ -35,7 +35,6 @@ const plansSlice = createSlice({
     initialState,
     reducers: {
       changePeriod: (state, action) => {
-        console.log(action);
         if (state.period === 'monthly')  {
             state.period = 'yearly';
             state.arcade = 90;

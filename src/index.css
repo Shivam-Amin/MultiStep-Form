@@ -45,6 +45,8 @@ p.description {
   letter-spacing: 0.3px;
 }
 
+
+/* --------------------------- Utility Classses -------------------------- */
 .padding-top {
   padding: 2rem;
 }
@@ -54,10 +56,6 @@ p.description {
   flex-direction: row;
   gap: 3.5rem;
   height: 100%;
-}
-
-.addBg {
-  border-color: var(--clr-input-active);
 }
 
 button[type='button'] {
