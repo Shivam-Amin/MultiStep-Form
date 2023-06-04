@@ -28,7 +28,6 @@
 }
 .pick:is(:hover, :focus) {
   border-color: var(--clr-input-active);
-  /* background-color: var(--clr-input-active-low); */
 }
 .pick:focus-visible {
   border-color: var(--clr-input-active);

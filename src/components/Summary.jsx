@@ -2,9 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nextStep, previousStep } from '../feature/steps/stepsSlice';
 import './../CSS/summary.css';
+import ThankYou from './ThankYou';
 
 const Summary = () => {
 
+  let displayPage = 'block';    // For inline style to form.
   const { 
     purchased_planTitle, 
     purchased_planPrice,
@@ -57,12 +59,19 @@ const Summary = () => {
     }
   }
 
+  function LastPage() {
+    displayPage = 'none';
+    return <ThankYou />;
+  }
+
   return (
     <div className="page4 split">
       <div className="padding-top">
-        <form onSubmit={(e) => {
-              e.preventDefault()
-              dispatch(nextStep())
+        <form 
+          style={{display:displayPage}}  
+          onSubmit={(e) => {
+            e.preventDefault()
+            dispatch(nextStep())
         }}>
         <h1>Finishing up</h1>
         <p className='description'>Double-check everthing looks OK before confirming.</p> 
@@ -80,14 +89,14 @@ const Summary = () => {
                 return (
                   <div className="adds" key={title}>
                     <p className='title'> {title} </p>
-                    <p className="price"> + ${price}/mo </p>
+                    <p className="price"> +${price}/mo </p>
                   </div>
                 )
               } else {
                 return (
                   <div className="adds" key={title}>
                     <p className='title'> {title} </p>
-                    <p className="price"> + ${price}/yr </p>
+                    <p className="price"> +${price}/yr </p>
                   </div>
                 )
               }
@@ -101,12 +110,13 @@ const Summary = () => {
         </div>
           
         <button 
-          type="previous"
-          onClick={() => dispatch(previousStep()) }>
+        type="previous"
+        onClick={() => dispatch(previousStep()) }>
             Go Back
         </button>
         <button 
-          type="submit">
+          type="submit"
+          onClick={() => nextStep()}>
             Confirm
         </button>
         </form>
@@ -115,4 +125,4 @@ const Summary = () => {
   )
 }
 
-export default Summary
+export default Summary;

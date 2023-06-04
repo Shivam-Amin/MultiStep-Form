@@ -2,7 +2,6 @@ import React from 'react'
 import img1 from './../images/bg-sidebar-desktop.png'
 import {useSelector} from 'react-redux';
 
-// const steps = ['your info', 'select plan', 'add-ons', 'summary'];
 
 const Steps = () => {
   const {steps, count} = useSelector((state) => state.steps);

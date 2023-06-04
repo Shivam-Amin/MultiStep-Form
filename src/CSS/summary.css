@@ -51,7 +51,8 @@
 }
 
 .addOns .adds .price {
-  font-family: ubuntu-bold;
+  color: var(--heading-1);
+  font-family: ubuntu-medium;
 }
 
 .total {
@@ -61,13 +62,13 @@
   padding: 1.2rem 1.5rem;
   margin-top: 0.5rem;
 
-  font-family: ubuntu-bold;
-  color: var(--clr-text-dark);
+  font-family: ubuntu-medium;
+  color: var(--clr-text);
   font-size: var(--size-300);
 }
 
 .total .price {
-  font-size: var(--size-500);
+  font-size: var(--size-400);
   font-family: ubuntu-bold;
   color: rgb(103, 74, 205);
 }

@@ -84,13 +84,4 @@ const AddOns = () => {
   )
 }
 
-const Tick = (props) => {
-  const {color, stroke} = props;
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 12 9">
-      <path fill={color} stroke={stroke} stroke-width="2" d="m1 4 3.433 3.433L10.866 1"/>
-    </svg>
-  );
-}
-
 export default AddOns;

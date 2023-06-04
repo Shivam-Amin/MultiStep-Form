@@ -5,6 +5,7 @@ import Steps from './components/Steps';
 import AddOns from './components/AddOns';
 import {useSelector} from 'react-redux';
 import Summary from './components/Summary';
+import ThankYou from './components/ThankYou';
 
 function DisplayPage() {
   const {count} = useSelector((state) => state.steps);
@@ -19,7 +20,7 @@ function DisplayPage() {
     case 4:
       return <Summary />
     default:
-      return;
+      return <ThankYou />;
   }
 }
 

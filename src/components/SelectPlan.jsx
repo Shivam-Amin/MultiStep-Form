@@ -5,7 +5,6 @@ import { nextStep, previousStep } from "../feature/steps/stepsSlice";
 
 const SelectPlan = () => {
 
-  // const {page2} = useSelector((store) => store.display);
   const { period, allPlans } = useSelector((store) => store.plans);
   const {plan_bg} = useSelector((store) => store.plans);
   const dispatch = useDispatch();
