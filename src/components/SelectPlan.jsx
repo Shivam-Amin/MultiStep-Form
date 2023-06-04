@@ -1,62 +1,67 @@
 import {useDispatch, useSelector} from 'react-redux';
-import { changePeriod } from "../feature/plans/plansSlice";
+import { addClassToPlans, changePeriod } from "../feature/plans/plansSlice";
 import './../CSS/selectPlan.css'
 import { nextStep, previousStep } from "../feature/steps/stepsSlice";
-import { useState } from 'react';
-
 
 const SelectPlan = () => {
 
   // const {page2} = useSelector((store) => store.display);
   const { period, allPlans } = useSelector((store) => store.plans);
+  const {plan_bg} = useSelector((store) => store.plans);
   const dispatch = useDispatch();
-
-  const [Picked_plan, setPicked_plan] = useState(['', '', '']);
-
-  function addClass (index) {
-    const newArray = ['', '', ''];
-    newArray[index] = 'addBg';
-    setPicked_plan(newArray);
-  }
-
 
   return (
     <div className='page2 split'>
       <div className="padding-top select-plan">
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            dispatch(nextStep())
+        }}>
         <h1>Select your plan</h1>
         <p className="description">You have the option of monthly or yearly billing.</p>
         <div className = 'plans'>
           {allPlans.map((obj, index) => {
+            const {img, title, price} = obj;
             if (period === 'monthly') {
-              return(
-                <button 
-                className={Picked_plan[index]} 
-                type="radio" 
-                id="same" 
-                key={obj.title} 
-                onClick={() => addClass(index)} >
-                  <img src={obj.img} alt="icon" />
+              return (
+                <>
+                <input type='radio'
+                name='plan'
+                id={title}
+                className={plan_bg[index]} 
+                key={title} 
+                required
+                onChange={() => dispatch(addClassToPlans({plan_num: index, value: title, price: price}))} 
+                defaultChecked={(plan_bg[index] === 'addBg')} />
+                <label htmlFor={title} className={plan_bg[index]}>
+                  <img src={img} alt="icon" />
                   <div>
-                    <h1>{obj.title}</h1>
-                    <p className="description">${obj.price}/mo</p>
+                    <h1>{title}</h1>
+                    <p className="description">${price}/mo</p>
                   </div>
-                </button>
+                </label>
+                </>  
               );
-            } else {
+            } else {  
               return(
-                <button 
-                className={Picked_plan[index]} 
-                type="radio" 
-                id="same" 
-                key={obj.title}
-                onClick={() => addClass(index)} >
-                  <img src={obj.img} alt="icon" />
+                <>
+                <input type='radio'
+                name='plan'
+                id={title}
+                className={plan_bg[index]} 
+                key={title} 
+                required
+                onChange={() => dispatch(addClassToPlans({plan_num: index, value: title, price: price}))} 
+                defaultChecked={(plan_bg[index] === 'addBg')} />
+                <label htmlFor={title} className={plan_bg[index]}>
+                  <img src={img} alt="icon" />
                   <div>
-                    <h1>{obj.title}</h1>
-                    <p className="description">${obj.price}/yr</p>
+                    <h1>{title}</h1>
+                    <p className="description">${price}/yr</p>
                     <p className="show-free">2 months free</p>
                   </div>
-                </button>
+                </label>
+                </> 
               );
             }
         })}
@@ -81,11 +86,10 @@ const SelectPlan = () => {
           onClick={() => dispatch(previousStep()) }>
             Go Back
         </button>
-        <button 
-          type="button"
-          onClick={() => dispatch(nextStep()) }>
+        <button type="submit">
             Next Step
         </button>
+        </form>
       </div>
     </div>
   )

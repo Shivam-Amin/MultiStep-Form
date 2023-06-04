@@ -62,3 +62,8 @@ label {
   font-family: ubuntu-bold;
   color: rgb(103, 74, 205);
 }
+
+.addBg {
+  border-color: var(--clr-input-active);
+  background-color: var(--clr-input-active-low);
+}

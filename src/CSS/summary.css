@@ -1,8 +1,76 @@
 .page4 {
     display: flex;
     position: relative;
+    width: 523px;
 }
 
+.summary {
+  width: 430px;
+  margin-top: 2rem;
+  padding: 1.8rem 1.5rem;
+  background-color: var(--clr-input-active-low);
+  border-radius: 10px;
+}
+
+/* plan style */
+.summary > * {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary .plan p {
+  font-family: ubuntu-bold;
+  color: var(--heading-1);
+  font-size: var(--size-400);
+}
+
+/* divider */
+.summary hr {
+  border-color: var(--clr-text-low);
+  border-width: 1px;
+  margin: 2rem 0 1rem 0;
+}
+
+/* Add-Ons */
+.addOns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.addOns .adds {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.addOns .adds p {
+  font-family: ubuntu-reg;
+  color: var(--clr-text);
+  font-size: var(--size-300);
+}
+
+.addOns .adds .price {
+  font-family: ubuntu-bold;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  width: 430px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 0.5rem;
+
+  font-family: ubuntu-bold;
+  color: var(--clr-text-dark);
+  font-size: var(--size-300);
+}
+
+.total .price {
+  font-size: var(--size-500);
+  font-family: ubuntu-bold;
+  color: rgb(103, 74, 205);
+}
 
 button[type='previous'] {
   position: absolute;
@@ -17,6 +85,7 @@ button[type='previous'] {
   border-radius: 10px;
   transition: 0.2s;
 }
+
 
 button[type='previous']:is(:hover, :focus) {
   cursor: pointer;

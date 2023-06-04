@@ -20,5 +20,4 @@ const stepsSlice = createSlice({
 
 export const { nextStep, previousStep } = stepsSlice.actions;
 
-
 export default stepsSlice.reducer;
