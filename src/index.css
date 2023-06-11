@@ -35,10 +35,6 @@
   src: url(./../assets/fonts/Ubuntu-Regular.ttf);
 }
 
-body {
-  overflow-y: hidden;
-}
-
 
 h1 {
   font-size: var(--size-700);
