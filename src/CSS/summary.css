@@ -1,11 +1,9 @@
 .page4 {
     display: flex;
-    position: relative;
-    width: 523px;
 }
 
-.summary {
-  width: 430px;
+.plan-detail {
+  width: 460px;
   margin-top: 2rem;
   padding: 1.8rem 1.5rem;
   background-color: var(--clr-input-active-low);
@@ -13,22 +11,30 @@
 }
 
 /* plan style */
-.summary > * {
+.plan-detail > * {
   display: flex;
   justify-content: space-between;
 }
 
-.summary .plan p {
+.plan-detail .plan p {
   font-family: ubuntu-bold;
   color: var(--heading-1);
   font-size: var(--size-400);
+  display: flex;
+  align-items: center;
+}
+
+.plan-detail .plan a {
+  font-family: ubuntu-reg;
+  color: var(--clr-text-dark);
+  font-size: var(--size-200);
 }
 
 /* divider */
-.summary hr {
+.plan-detail hr {
   border-color: var(--clr-text-low);
   border-width: 1px;
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0 0.5rem 0;
 }
 
 /* Add-Ons */
@@ -58,7 +64,7 @@
 .total {
   display: flex;
   justify-content: space-between;
-  width: 430px;
+  width: 460px;
   padding: 1.2rem 1.5rem;
   margin-top: 0.5rem;
 
@@ -73,22 +79,12 @@
   color: rgb(103, 74, 205);
 }
 
-button[type='previous'] {
-  position: absolute;
-  bottom: 2rem;
-  left: 1rem;
-  padding: 15px 25px;
-  font-family: ubuntu-bold;
-  font-size: var(--size-300);
-  background-color: transparent;
-  color: var(--clr-text);
-  border: none;
-  border-radius: 10px;
-  transition: 0.2s;
-}
-
-
-button[type='previous']:is(:hover, :focus) {
-  cursor: pointer;
-  color: var(--clr-input-active);
+@media (max-width: 34em) {
+  .plan-detail {
+    width: 100%;
+  }
+  
+  .total {
+    width: 100%;
+  }
 }

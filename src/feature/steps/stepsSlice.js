@@ -15,9 +15,13 @@ const stepsSlice = createSlice({
         previousStep: (state) => {
             state.count--;
         },
+        changeCount: (state, actions) => {
+            const {newCount} = actions.payload;
+            state.count = newCount;
+        }
     }
 })
 
-export const { nextStep, previousStep } = stepsSlice.actions;
+export const { nextStep, previousStep, changeCount } = stepsSlice.actions;
 
 export default stepsSlice.reducer;

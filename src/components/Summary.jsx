@@ -1,8 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextStep, previousStep } from '../feature/steps/stepsSlice';
+import { changeCount, nextStep, previousStep } from '../feature/steps/stepsSlice';
 import './../CSS/summary.css';
-import ThankYou from './ThankYou';
 
 const Summary = () => {
 
@@ -12,7 +11,7 @@ const Summary = () => {
     purchased_planPrice,
     picked_Adds,
     period } = useSelector((state) => state.plans);
-
+  
   let totalPrice = purchased_planPrice;
 
 
@@ -23,14 +22,20 @@ const Summary = () => {
     if (period === 'monthly') {
       return (
         <div className="plan">
+          <div>
           <p className='title'> {purchased_planTitle} (Monthly) </p>
+          <a href="#" onClick={() => dispatch(changeCount({newCount:1}))}>Change</a>
+          </div>
           <p className="price"> ${purchased_planPrice}/mo </p>
         </div>
       )
     } else {
       return (
         <div className="plan">
-          <p className='title'> {purchased_planTitle} (Yearly) </p>
+          <div>
+            <p className='title'> {purchased_planTitle} (Yearly) </p>
+            <a href="#" onClick={() => dispatch(changeCount({newCount:1}))}>Change</a>
+          </div>
           <p className="price"> ${purchased_planPrice}/yr </p>
         </div>
       )
@@ -59,14 +64,10 @@ const Summary = () => {
     }
   }
 
-  function LastPage() {
-    displayPage = 'none';
-    return <ThankYou />;
-  }
 
   return (
-    <div className="page4 split">
-      <div className="padding-top">
+    <div className="page4">
+      <div className="padding-top summary">
         <form 
           style={{display:displayPage}}  
           onSubmit={(e) => {
@@ -76,7 +77,7 @@ const Summary = () => {
         <h1>Finishing up</h1>
         <p className='description'>Double-check everthing looks OK before confirming.</p> 
 
-        <div className="summary">
+        <div className="plan-detail">
           {showPlan()}
           
           <hr />
@@ -109,16 +110,18 @@ const Summary = () => {
           {showTotal()}
         </div>
           
-        <button 
-        type="previous"
-        onClick={() => dispatch(previousStep()) }>
-            Go Back
-        </button>
-        <button 
-          type="submit"
-          onClick={() => nextStep()}>
-            Confirm
-        </button>
+        <div className="buttons">
+          <button 
+          type="previous"
+          onClick={() => dispatch(previousStep()) }>
+              Go Back
+          </button>
+          <button 
+            type="submit"
+            onClick={() => dispatch(nextStep())}>
+              Confirm
+          </button>
+        </div>
         </form>
       </div>
     </div>

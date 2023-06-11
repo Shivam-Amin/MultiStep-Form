@@ -58,9 +58,15 @@ picture {
     scroll-behavior: auto !important;
   }
 }
+/* body { */
+  /* position: relative; */
+  /* height: 100%; */
+  /* background-color: red; */
+/* } */
 
 /* ---------- App ------------ */
-.App {
+.App  {
+  /* position: relative; */
   width: 60rem;
   height: 598px;
   background-color: #fdfdff;
@@ -71,18 +77,43 @@ picture {
   padding: 1rem;
 }
 
+.App > * {
+  display: flex;
+  flex-direction: row;
+}
+
+.split {
+  display: flex;
+  flex-direction: row;
+  gap: 3.5rem;
+  height: 100%;
+}
+
+@media (max-width: 34em) {
+  .App {
+    /* width: 300px; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .App > * {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 
 /* ----------------- Steps ---------------- */
 
-.steps {
-  position: relative;
-}
-
 .default-steps {
-  position: absolute;
   left: 0;
   top: 0;
   padding: 40px 40px;
+  background-image: url(./images/bg-sidebar-desktop.png);
+  width: 274px;   
+  height: 568px;
 }
 
 .default-steps ul {
@@ -128,4 +159,33 @@ picture {
   font-size: 15px;
   font-family: ubuntu-bold;
   letter-spacing: 1px;
+}
+
+@media (max-width: 34em) {
+  .split {
+    gap: 0;   
+    /* To remove the extra gap generated 
+    when we do the form pages to absolute. */
+  }
+
+  .default-steps {
+    width: 100%;
+    height: 200px;
+
+    border-radius: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom -75px;
+  }
+
+  .default-steps ul {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .default-steps ul li {
+    display: none;
+  }
 }

@@ -19,7 +19,7 @@ function DisplayPage() {
       return <AddOns />
     case 4:
       return <Summary />
-    default:
+    case 5:
       return <ThankYou />;
   }
 }

@@ -1,15 +1,11 @@
-.page5 {
-    width: 530px;
-}
+
 .thankYou {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin: 0 auto;
+    margin: 150px 0;
 }
-
+ 
 .thankYou img {
     margin-bottom: 1.8rem;
 }
@@ -17,5 +13,11 @@
 .thankYou p {
     padding: 0.8rem 2rem;
     text-align: center;
+}
+
+@media (max-width: 34em) {  
+    .thankYou {
+        margin: 80px 0;
+    }
 }
 

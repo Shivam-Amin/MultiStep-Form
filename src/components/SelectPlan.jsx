@@ -10,7 +10,7 @@ const SelectPlan = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='page2 split'>
+    <div className='page2'>
       <div className="padding-top select-plan">
         <form onSubmit={(e) => {
             e.preventDefault()
@@ -80,6 +80,7 @@ const SelectPlan = () => {
           <div className={period} id="year">Yearly</div>
         </label>
 
+        <div className='buttons'>
         <button 
           type="previous"
           onClick={() => dispatch(previousStep()) }>
@@ -88,6 +89,7 @@ const SelectPlan = () => {
         <button type="submit">
             Next Step
         </button>
+        </div>
         </form>
       </div>
     </div>

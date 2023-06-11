@@ -32,7 +32,7 @@ const AddOns = () => {
 
 
   return (
-    <div className='page3 split'>
+    <div className='page3 '>
       <div className="padding-top add-ons">
         <form onSubmit={(e) => {
               e.preventDefault()
@@ -68,16 +68,19 @@ const AddOns = () => {
           );
         }) }
         </div>
-        <button 
-          type="previous"
-          onClick={ () => dispatch(previousStep()) }>
-            Go Back
-        </button>
-        <button 
-          type="submit"
-          onClick={ () => dispatch(nextStep()) }>
-            Next Step
-        </button>
+
+        <div className="buttons">
+          <button 
+            type="previous"
+            onClick={ () => dispatch(previousStep()) }>
+              Go Back
+          </button>
+          <button 
+            type="submit"
+            onClick={ () => dispatch(nextStep()) }>
+              Next Step
+          </button>
+        </div>
         </form>
       </div>
     </div>

@@ -8,7 +8,7 @@ const InfoPage = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='page1 split'>
+    <div className='page1'>
       <div className="padding-top infoPage-form">
         <h1>Personal info</h1>
         <p className="description">Please provide your name, email address, and phone number.</p>
@@ -49,10 +49,13 @@ const InfoPage = () => {
             placeholder="e.g. +1 234 567 890" 
             required/>
           </div>
+
+          <div className='buttons'>
           <button 
           type="submit" >
             Next Step
           </button>
+          </div>
         </form>
       </div>
     </div>

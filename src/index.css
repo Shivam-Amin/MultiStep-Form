@@ -1,5 +1,5 @@
 :root {
-  --size-200: 0.8rem;
+  --size-200: 0.9rem;
   --size-300: 1rem;
   --size-400: 1.2rem;
   --size-500: 1.5rem;
@@ -15,6 +15,9 @@
   --clr-text-low: rgba(182, 182, 182, 0.15); 
 
   --heading-1: rgb(51, 51, 94);
+
+  --mini-width: 90%;     
+  --mini-height: 450px;
 }
 
 @font-face {
@@ -32,6 +35,10 @@
   src: url(./../assets/fonts/Ubuntu-Regular.ttf);
 }
 
+body {
+  overflow-y: hidden;
+}
+
 
 h1 {
   font-size: var(--size-700);
@@ -46,6 +53,21 @@ p.description {
   letter-spacing: 0.3px;
 }
 
+.infoPage-form, .select-plan, .add-ons, .summary, .thankYou {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media (max-width: 34em) {
+  :root {
+    --size-700: 1.5rem;
+    --size-400: 1rem;
+    --size-300: 0.9rem;
+    --size-200: 0.7rem;
+  }
+}
+
 
 /* --------------------------- Utility Classses -------------------------- */
 
@@ -53,20 +75,17 @@ p.description {
   padding: 2rem;
 }
 
-.split {
-  display: flex;
-  flex-direction: row;
-  gap: 3.5rem;
+.max-height {
   height: 100%;
 }
 
 button[type='submit'] {
   position: absolute;
-  bottom: 2rem;
   right: 2rem;
+  top: 480px;
   padding: 15px 25px;
-  font-family: ubuntu-bold;
-  font-size: 15px;
+  font-family: ubuntu-medium;
+  font-size: var(--size-300);
   background-color: var(--clr-input);
   color: whitesmoke;
   border: none;
@@ -81,8 +100,9 @@ button[type='submit']:is(:hover, :active) {
 
 button[type='previous'] {
   position: absolute;
-  bottom: 2rem;
   left: 1rem;
+  top: 430px;
+  margin-top: 3rem;
   padding: 15px 25px;
   font-family: ubuntu-bold;
   font-size: var(--size-300);
@@ -96,4 +116,46 @@ button[type='previous'] {
 button[type='previous']:is(:hover, :focus) {
   cursor: pointer;
   color: var(--clr-input-active);
+}
+
+@media (max-width: 34em) {
+  .page1, .page2,.page3,.page4,.page5 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: var(--mini-width);
+    left: calc(50% - var(--mini-width)/2);
+    top: 126px;
+
+    background-color: #fdfdff;
+    border-radius: 0.5em;
+    box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+  }
+
+  div.buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+
+    background-color: #fdfdff;
+    border-radius: 0.5em;
+    box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+  }
+  
+  button[type='submit'] {
+    right: 20px;
+    top: 12px;
+    margin: 0;
+    padding: 15px 23px; 
+  }
+  
+  button[type='previous'] {
+    left: 20px;
+    top: 12px;
+    margin: 0;
+  }
 }
